@@ -1,0 +1,64 @@
+.resume {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.sidebar {
+    width: 35%;
+    background-color: #DDD;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.sidebar ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.content {
+    width: 65%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.job {
+    margin-bottom: 20px;
+}
+
+.job h3 {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.job p {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+ul {
+    list-style: disc;
+    margin-top: 5px;
+    padding-left: 20px;
+}

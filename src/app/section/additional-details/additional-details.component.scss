@@ -1,0 +1,19 @@
+.NgxEditor__Wrapper {
+    height: 500px;
+    position: relative;
+}
+
+.NgxEditor__Wrapper::after {
+    content: '';
+    background-color: #0366d6;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    transition: transform 1s;
+}
+
+.NgxEditor__Wrapper:focus-within::after {
+    transform: scaleX(1);
+}

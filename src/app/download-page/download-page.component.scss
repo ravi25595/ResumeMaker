@@ -1,0 +1,53 @@
+.container {
+    min-width: 100%;
+    display: flex;
+}
+
+.left-container {
+    padding: 16px;
+    flex: 1;
+}
+
+.template-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    columns: 2;
+    padding: 5px;
+    gap: 5px;
+}
+
+.template-preview {
+    display: flex;
+    width: fit-content;
+    zoom: 0.2;
+}
+
+.template-card {
+    transition: box-shadow 1s;
+}
+
+.template-card:hover {
+    box-shadow: 0 0 5px 5px aqua;
+}
+
+.pdf-content {
+    display: flex;
+    flex: 1;
+    margin: 0px;
+    background-color: aqua;
+}
+
+.right-container {
+    padding: 16px;
+    flex: 1;
+}
+
+.icon-btn {
+    background-color: blue;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    width: 100px;
+    padding: 16px;
+}

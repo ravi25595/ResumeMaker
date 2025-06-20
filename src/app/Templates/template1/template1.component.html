@@ -1,0 +1,150 @@
+<div class="resume">
+    <aside class="sidebar">
+        <div class="contact">
+            @if (resume.header.email) {
+            <p>{{resume.header.email}}</p>
+            }@else {
+            @if(isPreview){<p>d.agarwal&#64;sample.in</p>}
+            }
+            <p>{{resume.header.phone || '+91 11 5555 3345'}}</p>
+            <p>{{resume.header.city || 'New Delhi'}}, {{resume.header.country || 'India '}} {{resume.header.pinCode ||
+                '110034'}}</p>
+        </div>
+
+        <section>
+            <h3>Skills</h3>
+            @if (resume.skills.length) {
+            <!-- @for (skill of resume.skills; track $index) {
+            <li>{{skill}}</li>
+            } -->
+            <div [innerHTML]="resume.skills"></div>
+            }
+            @else {
+            @if (isPreview)
+            {
+            <ul>
+                <li>Cash register operation</li>
+                <li>POS system operation</li>
+                <li>Sales expertise</li>
+                <li>Teamwork</li>
+                <li>Inventory management</li>
+                <li>Accurate money handling</li>
+            </ul>
+            }
+            }
+        </section>
+
+        <section>
+            <h3>Education And Training</h3>
+            @if (resume.education[0].instituteName) {
+            @for (item of resume.education; track $index) {
+            <p><strong>{{item.date | monthFormat}}</strong><br />
+                <b>{{item.degree}}</b> {{item.fos}}<br />
+                {{item.instituteName}},
+                {{item.location}}
+            </p>
+            }
+            }
+            @else{
+            @if(isPreview){<p><strong>2016</strong><br />
+                Diploma in Financial Accounting<br />
+                Oxford Software Institute &<br />
+                Oxford School Of English<br />
+                New Delhi, India</p>}
+            }
+        </section>
+        @if (resume.additional) {
+        <section [innerHTML]="resume.additional"></section>
+        }
+        @else {
+        <section>
+            <h3>Languages</h3>
+            <p><strong>Hindi:</strong> Native speaker</p>
+            <p><strong>English:</strong> Proficient (C2)</p>
+            <p><strong>Bengali:</strong> Upper-intermediate (B2)</p>
+        </section>
+
+        <section>
+            <h3>Interests And Hobbies</h3>
+            <ul>
+                <li>Recreational Football League – Team captain</li>
+                <li>Two-time league champions</li>
+                <li>Red Cross Volunteer</li>
+                <li>Taught classes in lifesaving skills including: CPR, First Aid</li>
+            </ul>
+        </section>
+        }
+    </aside>
+
+    <main class="content">
+        @if (resume.header.fName) {
+        <h1>{{resume.header.fName}} {{resume.header.lName}}</h1>
+        }@else {
+        <h1>Diya Agarwal</h1>
+        }
+
+        <section>
+            <h2>Summary</h2>
+            @if (resume.summary?.length) {
+            <p>{{resume.summary}}</p>
+            }
+            @else {
+            <p>
+                Customer-focused Retail Sales professional with solid understanding of retail dynamics, marketing
+                and customer service.
+                Offering 5 years of experience providing quality product recommendations and solutions to meet
+                customer needs and exceed expectations.
+                Demonstrated record of exceeding revenue targets by leveraging communication skills and sales
+                expertise.
+            </p>
+            }
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            @if (resume.experience[0].jobTitle) {
+            @for (item of resume.experience; track $index) {
+            <div class="job">
+                <h3>{{item.employer}} - {{item.jobTitle}}</h3>
+                <p><em>{{item.city}}, {{item.country}} | {{item.startDate | monthFormat}} – {{item.endDate |
+                        monthFormat}}</em></p>
+                @if (item.desc && item.desc.length){
+                <div [innerHTML]="item.desc"></div>
+                }
+            </div>
+            }
+            }
+            @else {
+            <div class="job">
+                <h3>ZARA - Retail Sales Associate</h3>
+                <p><em>New Delhi, India | 02/2017 – Current</em></p>
+                <ul>
+                    <li>Increased monthly sales 10% by upselling and cross-selling products.</li>
+                    <li>Prevented store losses by leveraging attention to detail and integrity.</li>
+                    <li>Processed payments and maintained accurate drawers.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3>Dunkin’ Donuts - Barista</h3>
+                <p><em>New Delhi, India | 03/2015 – 01/2017</em></p>
+                <ul>
+                    <li>Upsold seasonal drinks, boosting average sales by ₹1500 weekly.</li>
+                    <li>Managed morning rush of 300+ customers daily.</li>
+                    <li>Trained 15 baristas in new smoothie program.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3>McDonald's - Cashier</h3>
+                <p><em>New Delhi, India | 01/2014 – 02/2015</em></p>
+                <ul>
+                    <li>Processed all transactions accurately and promptly.</li>
+                    <li>Entered orders in POS, customized items, and handled payments.</li>
+                    <li>Kept kitchen and prep areas clean and organized.</li>
+                </ul>
+            </div>
+            }
+        </section>
+    </main>
+</div>

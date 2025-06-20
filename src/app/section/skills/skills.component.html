@@ -1,0 +1,14 @@
+<!-- <div class="skills-wrapper">
+    @for (sk of resume.skills; track $index) {
+    <div class="skill-chip">
+        {{ sk }}
+        <button type="button" (click)="removeSkill($index)">×</button>
+    </div>
+    }
+    <input type="text" [(ngModel)]="skill" (keydown)="addSkill($event)" placeholder="Type a skill and press Enter" />
+</div> -->
+<div class="NgxEditor__Wrapper">
+    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+    <ngx-editor [placeholder]="'type here...'" [editor]="editor" [(ngModel)]="resume.skills"></ngx-editor>
+</div>
+<!-- <main [innerHTML]="">{{resume.skills.toString()}}</main> -->

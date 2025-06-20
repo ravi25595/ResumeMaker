@@ -1,0 +1,73 @@
+<div class="container">
+    <aside class="aside-nav dark-aside" [class.thin-nav]="currentIndex == currentMenuIndex">
+        <ul>
+            @for (section of sections; track $index)
+            {
+            @if ($index<6) { <li (click)="setActive($index)" matTooltip="section.title">
+                @if (currentMenuIndex == $index) {
+                <span class="progress-fill-container">
+                    <img src="/assets/done_bg.svg">
+                    <span class="progress-fill-no">{{$index+1}}</span></span>
+                }@else if (section.visited) {
+                <span class="progress-fill-container" [class.visited]="section.visited"><img
+                        src="/assets/done_round.svg"><span class="progress-fill-no"></span></span>
+                }
+                @else {
+                <span class="progress-fill-container"><img src="/assets/done_round.svg"><span
+                        class="progress-fill-no"></span></span>
+                }
+                <h6>{{section.title}}</h6>
+                </li>
+                }
+                }
+        </ul>
+    </aside>
+    <main>
+        <div class="main-container">
+            <div class="main-row fade-content" [class.fade-in]="animate">
+                <div style="max-width: 750px;">
+                    <h1>{{sections[currentIndex].Title}}</h1>
+                    <h5>{{sections[currentIndex].subTitle}}</h5>
+                </div>
+                <div></div>
+            </div>
+            <div class="main-row fade-content" [class.fade-in]="animate">
+                <div class="main-content">
+                    @switch (currentIndex) {
+                    @case (0) {<app-contact-info [resume]="resume"></app-contact-info>}
+                    @case (1) {<app-skills [resume]="resume"></app-skills>}
+                    @case (2) {<app-summary [resume]="resume"></app-summary>}
+                    @case (3) {<app-experience [resume]="resume" [currentIndex]="experienceIndex"></app-experience>}
+                    @case (4) {<app-education [resume]="resume" [currentIndex]="educationIndex"></app-education>}
+                    @case (5) {<app-additional-details [resume]="resume"></app-additional-details>}
+                    @case (6) {<app-education-summary [resume]="resume" (currentIndexChange)="educationIndex = $event"
+                        (parentIndexChange)="currentIndex = $event"></app-education-summary>}
+                    @case (7) {<app-experience-summary [resume]="resume" (currentIndexChange)="experienceIndex = $event"
+                        (parentIndexChange)="currentIndex = $event"></app-experience-summary>}
+                    @case (8) {<app-experience-update [resume]="resume"
+                        [currentIndex]="experienceIndex"></app-experience-update>}
+                    }
+                </div>
+                <div class="template-card">
+                    <div class="template-preview">
+                        <ng-container *ngComponentOutlet="template; injector: customInjector"></ng-container>
+                        <!-- <template></template> -->
+                    </div>
+                </div>
+            </div>
+            <div class="main-row" [class.fade-in]="animate">
+                <div class="bottom-btn-bar">
+                    @if (currentIndex){<button class="btn btn-outline-primary btn-lg"
+                        (click)="backAction()">Back</button>}@else {<div></div>}
+
+                    @if ([6,7].includes(currentIndex)) {<button class=" btn btn-primary btn-lg"
+                        (click)="AddMore()"><mat-icon>add</mat-icon>Add
+                        @if(currentIndex == 7){Experience} @else if(currentIndex == 6) {Education}</button>}
+                    <button class="btn btn-primary btn-lg" (click)="continue()">Next</button>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- {{currentIndex+" "+ currentMenuIndex}} -->

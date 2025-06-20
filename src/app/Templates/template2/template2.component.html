@@ -1,0 +1,140 @@
+<!-- resume-template.component.html -->
+<div class="resume-container">
+    <div class="header">
+        <div class="photo"></div>
+        <div class="info">
+            @if (resume.header.fName) {
+            <h1 class="name">{{(resume.header.fName +" "+ resume.header.lName).trim()}}</h1>
+            }@else if(isPreview){
+            <h1 class="name">Diya Agarwal</h1>
+            }
+            <p class="contact">@if (resume.header.phone) {{{resume.header.phone}}&bull;}@else if (isPreview) {
+                +911155553345 &bull;}<a href="mailto:d.agarwal@sample.in">
+                    @if (resume.header.email) {
+                    {{resume.header.email}}
+                    }@else if (isPreview){
+                    d.agarwal&#64;sample.in
+                    }
+                </a>
+                @if (resume.header.city) {
+                &bull; {{resume.header.city}}, {{resume.header.country}} {{resume.header.pinCode}}
+                }@else if (isPreview){
+                &bull; New Delhi, India 110034
+                }
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Summary</h2>
+        <p class="section-content">
+            @if (resume.summary) {
+            {{resume.summary}}
+            }@else if (isPreview) {
+            Customer-focused Retail Sales professional with solid understanding of retail dynamics, marketing and
+            customer service.
+            Offering 5 years of experience providing quality product recommendations and solutions to meet customer
+            needs and exceed expectations.
+            Demonstrated record of exceeding revenue targets by leveraging communication skills and sales expertise.
+            }
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Skills</h2>
+        @if (resume?.skills && resume.skills?.length>7) {
+        <div [outerHTML]="resume.skills" class="skills-html">
+        </div>
+        }
+        @else {
+        <ul class="skills-list">
+            <li>Cash register operation</li>
+            <li>POS system operation</li>
+            <li>Sales expertise</li>
+            <li>Teamwork</li>
+            <li>Inventory management</li>
+            <li>Accurate money handling</li>
+            <li>Documentation and recordkeeping</li>
+            <li>Retail merchandising expertise</li>
+        </ul>
+        }
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Experience</h2>
+        @if (resume.experience[0].jobTitle)
+        {
+        @for (item of resume.experience; track $index) {
+        <div class="job-entry">
+            <p class="job-duration">{{item.startDate}} - {{item.endDate}}</p>
+            <p><strong>{{item.jobTitle}}, <span class="company">{{item.employer}}</span></strong>, {{item.city}},
+                {{item.country}}
+            </p>
+            <div [innerHTML]="item.desc"></div>
+        </div>
+        }
+        }
+        @else if (isPreview) {
+        <div class="job-entry">
+            <p class="job-duration">02/2017 - Current</p>
+            <p><strong>Retail Sales Associate, <span class="company">ZARA</span></strong>, New Delhi, India</p>
+            <ul>
+                <li>Increased monthly sales 10% by effectively upselling and cross-selling products to maximize
+                    profitability.</li>
+                <li>Prevented store losses by leveraging awareness, attention to detail, and integrity to identify
+                    and
+                    investigate concerns.</li>
+                <li>Processed payments and maintained accurate drawers to meet financial targets.</li>
+            </ul>
+        </div>
+
+        <div class="job-entry">
+            <p class="job-duration">03/2015 - 01/2017</p>
+            <p><strong>Barista, <span class="company">Dunkin' Donuts</span></strong>, New Delhi, India</p>
+            <ul>
+                <li>Upsold seasonal drinks and pastries, boosting average store sales by ₹1500 weekly.</li>
+                <li>Managed morning rush of over 300 customers daily with efficient, levelheaded customer service.
+                </li>
+                <li>Trained entire staff of 15 baristas in new smoothie program offerings and procedures.</li>
+                <li>Developed creative and appealing latte art techniques and instructed coworkers in method.</li>
+            </ul>
+        </div>
+        }
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education And Training</h2>
+        @if (resume.education[0].instituteName) {
+        @for (item of resume.education; track $index) {
+        <p class="education-entry">
+            {{item.date | monthFormat}}<br>
+            <strong>{{item.degree}} {{item.fos}}</strong><br>
+            <em>{{item.instituteName}}</em> {{item.location}}
+        </p>
+        }
+        }
+        @else {
+        <p class="education-entry">
+            2016<br>
+            <strong>Diploma In Financial Accounting</strong><br>
+            <em>Oxford Software Institute & Oxford School Of English</em>, New Delhi, India
+        </p>
+        }
+    </div>
+
+    <div class="section">
+        @if (resume.additional) {
+        <h2 class="section-title"></h2>
+        <section [innerHTML]="resume.additional"></section>
+        }
+        @else {
+        <h2 class="section-title">Languages</h2>
+        <p><strong>Hindi:</strong> Native speaker</p>
+        <p><strong>English:</strong> <span class="lang-level">C2</span> <span class="lang-label">Proficient</span>
+        </p>
+        <p><strong>Bengali:</strong> <span class="lang-level">B2</span> <span
+                class="lang-label">Upper-intermediate</span>
+        </p>
+        }
+    </div>
+</div>

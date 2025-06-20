@@ -1,0 +1,216 @@
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    padding-top: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.hiw-navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.custom-jumbotron {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    margin: 50px auto 0px;
+}
+
+.icon.icon-pencil {
+    background-image: url("/assets/icon-paper-plane.svg");
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    background-position: center;
+}
+
+.custom-jumbotron h1 {
+    font-weight: 800;
+    text-align: center;
+}
+
+.yellow-curve-bdr {
+    display: inline-block;
+    position: relative;
+}
+
+.yellow-curve-bdr::after {
+    content: '';
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjg0IiBoZWlnaHQ9IjciIHZpZXdCb3g9IjAgMCAyODQgNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNzAxMTcgMi45NjcyQzI1LjY4NzEgMi40MzI4OCA2MC4xOTA4IDIuMzA0MzEgODQuMTk5IDIuNjE3MDdDMTI5Ljg1NCAzLjIxMTgyIDE4My45MDQgOC4wMDE2MiAyODEuNzAxIDIuNjE3MDciIHN0cm9rZT0iI0ZGQ0Q3RCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    display: flex;
+    height: 8px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+*::before *::after {
+    box-sizing: inherit;
+}
+
+.custom-jumbotron .subheading {
+    font-size: 1.5rem;
+    line-height: 2.8rem;
+    text-align: center;
+}
+
+.btn-multi-check {
+    display: block;
+    border: .1rem solid black;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    color: black;
+    background-color: #ffebcb;
+    width: 100%;
+    min-width: 250px;
+    height: 50px;
+}
+
+.btn-outline-primary:hover {
+    background-color: #2ff83d11;
+    border: 2px solid black;
+}
+
+.multi-check-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.multi-check-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.multi-check-dec {
+    margin-top: 8px;
+    margin-bottom: 32px;
+    background: #ffebcb;
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3rem;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.multi-check-item {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+}
+
+.select {
+    padding: 8px;
+    position: relative;
+    background: transparent;
+    border: 1px solid #0003;
+    z-index: 2;
+    width: 100%;
+}
+
+.select:hover {
+    box-shadow: 3px 3px 3px #0003;
+}
+
+.select:focus {
+    outline: none;
+}
+
+.multi-check-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    height: 3px;
+    width: 100%;
+    background-color: #2246c3;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 1;
+}
+
+/* Target when select is focused, using :focus-within on parent */
+.multi-check-item:focus-within::after {
+    transform: scaleX(1);
+}
+
+.btn-primary {
+    background-color: #2246c3;
+    border-radius: 28px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    height: 55px;
+    line-height: 1.9rem;
+    min-width: 360px;
+    margin: 20px;
+    transition: box-shadow 1s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 1rem #2246c3;
+}
+
+.hiw-primary-footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hiw-list-inline {
+    list-style: none;
+    display: flex;
+}
+
+.hiw-list-item {
+    border-right: 1px solid #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #000;
+    height: 15px;
+    padding: 0 10px;
+    justify-content: center;
+}
+
+.hiw-list-item:last-child {
+    border-right: none;
+}
+
+.hiw-copyright {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#howItWorks.hiw-footer {
+    display: flex;
+    position: relative;
+    margin-top: auto;
+    min-height: 150px;
+    overflow: hidden;
+}

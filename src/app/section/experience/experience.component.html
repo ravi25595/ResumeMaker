@@ -1,0 +1,40 @@
+<div class="container">
+    <form>
+        <div class="form-field-wrapper">
+            <div class="form-field">
+                <label>JOB TITLE</label>
+                <input [(ngModel)]="resume.experience[currentIndex].jobTitle" name="JobTitle"
+                    placeholder="Retail Sales Associate" />
+            </div>
+            <div class="form-field">
+                <label>EMPLOYER</label>
+                <input [(ngModel)]="resume.experience[currentIndex].employer" name="Employer" placeholder="ZARA" />
+            </div>
+            <div class="form-field">
+                <label>CITY</label>
+                <input [(ngModel)]="resume.experience[currentIndex].city" name="City" placeholder="New Delhi" />
+            </div>
+            <div class="form-field">
+                <label>COUNTRY</label>
+                <input [(ngModel)]="resume.experience[currentIndex].country" name="Country" placeholder="India" />
+            </div>
+            <div class="form-field">
+                <label>START DATE</label>
+                <input [(ngModel)]="resume.experience[currentIndex].startDate" name="StartDate" type="month"
+                    placeholder="Select Date" />
+            </div>
+            <div class="form-field">
+                <label>END DATE</label>
+                <input [(ngModel)]="resume.experience[currentIndex].endDate" name="endDate" type="month"
+                    [disabled]="resume.experience[currentIndex].currentlyWorking" placeholder="Select Date" />
+            </div>
+            <div class="checkbox-field">
+                <input type="checkbox" [(ngModel)]="resume.experience[currentIndex].currentlyWorking"
+                    name="currentlyWorking" id="current" class="custom-checkbox" (ngModelChange)="toggleEndDate()" />
+                <label for="current" style="user-select: none; cursor: pointer;">I currently work here</label>
+            </div>
+        </div>
+    </form>
+    <!-- <button (click)="addExperience()"><mat-icon>add</mat-icon>Add experience</button> -->
+</div>
+<!-- {{stringify(resume.experience)}} -->

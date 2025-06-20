@@ -1,0 +1,40 @@
+<div class="container">
+    <form action="submit" class="form">
+        <div class="form-field-wrapper">
+            <div class="form-row">
+                <div class="form-field city-col">
+                    <label>FIRST NAME</label>
+                    <input placeholder="Diya" [(ngModel)]="resume.header.fName" name="FName" />
+                </div>
+                <div class="form-field city-col">
+                    <label>SURNAME NAME</label>
+                    <input placeholder="Aggarwal" [(ngModel)]="resume.header.lName" name="LName" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field city-col">
+                    <label>CITY</label>
+                    <input placeholder="New Delhi" [(ngModel)]="resume.header.city" name="City" />
+                </div>
+                <div class="form-field country-col">
+                    <label>COUNTRY</label>
+                    <input placeholder="India" [(ngModel)]="resume.header.country" name="Country" />
+                </div>
+                <div class="form-field country-col">
+                    <label>PIN CODE</label>
+                    <input placeholder="110034" [(ngModel)]="resume.header.pinCode" name="PinCode" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field city-col">
+                    <label>PHONE</label>
+                    <input placeholder="+91 11 1234 5677" [(ngModel)]="resume.header.phone" name="Phone" />
+                </div>
+                <div class="form-field city-col">
+                    <label>EMAIL*</label>
+                    <input placeholder="d.aggarwal@sample.in" [(ngModel)]="resume.header.email" name="sName" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

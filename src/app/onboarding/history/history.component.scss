@@ -1,0 +1,213 @@
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    padding-top: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hiw-navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.custom-jumbotron {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    margin: 50px auto 0px;
+}
+
+.icon.icon-pencil {
+    background-image: url("/assets/icon-pencil.svg");
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    background-position: center;
+}
+
+.custom-jumbotron h1 {
+    font-weight: 800;
+    text-align: center;
+}
+
+.yellow-curve-bdr {
+    display: inline-block;
+    position: relative;
+}
+
+.yellow-curve-bdr::after {
+    content: '';
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjg0IiBoZWlnaHQ9IjciIHZpZXdCb3g9IjAgMCAyODQgNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNzAxMTcgMi45NjcyQzI1LjY4NzEgMi40MzI4OCA2MC4xOTA4IDIuMzA0MzEgODQuMTk5IDIuNjE3MDdDMTI5Ljg1NCAzLjIxMTgyIDE4My45MDQgOC4wMDE2MiAyODEuNzAxIDIuNjE3MDciIHN0cm9rZT0iI0ZGQ0Q3RCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    display: flex;
+    height: 8px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+*::before *::after {
+    box-sizing: inherit;
+}
+
+.custom-jumbotron .subheading {
+    font-size: 1.5rem;
+    line-height: 2.8rem;
+    text-align: center;
+}
+
+.btn-multi-check {
+    display: block;
+    border: .1rem solid black;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    color: black;
+    min-width: 250px;
+    height: 50px;
+}
+
+.btn-outline-primary:hover {
+    background-color: #2ff83d11;
+    border: 2px solid black;
+}
+
+.multi-check-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+}
+
+.multi-check-group {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.btn-outline-primary {
+    width: 200px;
+    height: 50px;
+    color: #000;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+.btn-active {
+    background-color: #2ff83d11;
+    border-width: 2px;
+    position: relative;
+}
+
+.btn-active::after {
+    content: "\f00c";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    color: #fff;
+    font-family: "Font Awesome 6 Free";
+    font-size: 14px;
+    font-weight: 900;
+    background: #000;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+}
+
+.multi-check-dec {
+    margin-top: 8px;
+    margin-bottom: 32px;
+    background: #ffebcb;
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3rem;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    max-width: 50rem;
+    margin: 0 auto;
+    max-height: 0px;
+    opacity: 0;
+    transition: max-height 1s ease-in, opacity 0.4s ease-in;
+}
+
+.active-dec {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.option-bold {
+    display: block;
+}
+
+.btn-primary {
+    background-color: #2246c3;
+    border-radius: 28px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    height: 55px;
+    line-height: 1.9rem;
+    min-width: 360px;
+    margin: 20px;
+    transition: box-shadow 1s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 1rem #2246c3;
+}
+
+.hiw-primary-footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hiw-list-inline {
+    list-style: none;
+    display: flex;
+}
+
+.hiw-list-item {
+    border-right: 1px solid #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #000;
+    height: 15px;
+    padding: 0 10px;
+    justify-content: center;
+}
+
+.hiw-list-item:last-child {
+    border-right: none;
+}
+
+.hiw-copyright {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#howItWorks.hiw-footer {
+    display: flex;
+    position: relative;
+    margin-top: auto;
+    min-height: 150px;
+    overflow: hidden;
+}

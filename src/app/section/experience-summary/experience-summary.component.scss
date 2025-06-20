@@ -1,0 +1,22 @@
+.container {
+    box-shadow: 0 0 5px #0086fc67;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experience-item {
+    list-style-type: none;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 3px #0004;
+}

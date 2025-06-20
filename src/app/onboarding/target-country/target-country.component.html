@@ -1,0 +1,53 @@
+<div class="page-wrapper">
+    <header class="hiw-header">
+        <div id="containerHIW" class="container">
+            <nav class="hiw-navbar">
+                <a>
+                    <img src="assets/resumenow.svg" alt="resumenow">
+                </a>
+                <a></a>
+            </nav>
+        </div>
+    </header>
+    <div class="custom-jumbotron">
+        <div class="container">
+            <div class="icon icon-pencil">
+            </div>
+            <h1>Where are you focusing your <span class="yellow-curve-bdr">job search</span>?</h1>
+            <div class="multi-check-wrapper">
+                <div class="multi-check-group">
+                    <div class="multi-check-item">
+                        <select class="select">
+                            @for (country of countries; track $index) {
+                            <option>{{country}}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="multi-check-dec">
+                        <p class="level">
+                            We'll recommend the right templates for your target country
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="jumbotron-footer">
+                <button type="button" (click)="openNextPage()" class="btn btn-primary btn-lg" id="btnContinue">See
+                    Template</button>
+            </div>
+        </div>
+    </div>
+    <footer id="howItWorks" class="hiw-footer">
+        <div class="container">
+            <div class="hiw-primary-footer">
+                <ul class="hiw-list-inline">
+                    <li class="hiw-list-item">Terms</li>
+                    <li class="hiw-list-item">Privacy Policy</li>
+                    <li class="hiw-list-item">Contact Us</li>
+                </ul>
+                <div>
+                    <p class="hiw-copyright">© 2025, NOW Limited. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

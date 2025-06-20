@@ -1,0 +1,57 @@
+<div class="page-wrapper">
+    <header>
+        <div class="container">
+            <div class="navbar"><img src="assets/resumenow.svg">
+                <a></a>
+            </div>
+            <h1>Templates we recommend for <span class="header-text-highlight">entry-level</span></h1>
+            <h2>You can always change your template later.</h2>
+            <div class="filters">
+                <div class="colors">
+                    <span>Color:</span>
+                    <ul>
+                        @for (color of colors; track $index) {
+                        <li class="list-item" [ngStyle]="{'--color': color}">
+                            <button [style.background-color]="color" class="list-color-box"
+                                [ngClass]="{'active': currentColorIndex == $index}"
+                                (click)="currentColorIndex = $index"></button>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="jumbotron-body">
+        <div class="container">
+            <!-- <div style="height: 250px;"></div> -->
+            <div class="template-container">
+                @for (item of templates; track $index) {
+                <div class="template-card">
+                    <div class="template-preview">
+                        <ng-container *ngComponentOutlet="item.component; injector: customInjector"></ng-container>
+                    </div>
+                    <button mat-flat-button class="btnChooseTemplate" (click)="continue($index)"
+                        [routerLink]="['/Editor']">
+                        Choose Template
+                    </button>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <footer id="howItWorks" class="hiw-footer">
+        <div class="container">
+            <div class="hiw-primary-footer">
+                <ul class="hiw-list-inline">
+                    <li class="hiw-list-item">Terms</li>
+                    <li class="hiw-list-item">Privacy Policy</li>
+                    <li class="hiw-list-item">Contact Us</li>
+                </ul>
+                <div>
+                    <p class="hiw-copyright">© 2025, NOW Limited. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

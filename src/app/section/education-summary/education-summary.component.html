@@ -1,0 +1,30 @@
+<div class="container">
+    <h5>Education & Training</h5>
+    <ul cdkDropList (cdkDropListDropped)="drop($event)">
+        @for (item of resume.education; track $index) {
+        <li class="education-item" cdkDrag>
+            <div class="education-details">
+                <h6>{{item.degree}} | {{item.fos}}</h6>
+                <h5>{{item.instituteName}}</h5>
+                <p>{{item.location}} | {{item.date | monthFormat}}</p>
+            </div>
+            <hr />
+            <div class="bottom-bar">
+                <div></div>
+                <div class="bottom-btn-bar">
+                    <button mat-button (click)="editEducation($index)">
+                        <mat-icon>edit</mat-icon>Edit
+                    </button>
+                    <button mat-button (click)="deleteEducation($index)">
+                        <mat-icon>delete</mat-icon>Delete
+                    </button>
+                    <!-- No need to bind specifically to Move; the whole <li> is draggable -->
+                    <button mat-button cdkDragHandle>
+                        <mat-icon>open_with</mat-icon>Move
+                    </button>
+                </div>
+            </div>
+        </li>
+        }
+    </ul>
+</div>

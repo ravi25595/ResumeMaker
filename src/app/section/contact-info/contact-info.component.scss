@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    width: clamp(300px, 100%, 1000px);
+}
+
+.form {
+    display: flex;
+    width: 100%;
+}
+
+.form-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.city-col {
+    flex: 2;
+}
+
+.country-col {
+    flex: 0.1;
+    width: 23%;
+}
+
+.form-row {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    flex-wrap: wrap;
+}

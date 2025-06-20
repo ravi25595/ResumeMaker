@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="left-container">
+        <img src="/assets/resumenow.svg" alt="logo">
+        <div class="template-container">
+            @for (item of templates; track $index) {
+            <div class="template-card">
+                <div class="template-preview">
+                    <ng-container
+                        *ngComponentOutlet="templates[$index].component; injector: customInjector"></ng-container>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    <div id="pdf-content">
+        <ng-container *ngComponentOutlet="template; injector: customInjector"></ng-container>
+    </div>
+    <div class="right-container">
+        <button class="icon-btn" (click)="downloadPDF()"><mat-icon>download</mat-icon>Download</button>
+    </div>
+</div>
