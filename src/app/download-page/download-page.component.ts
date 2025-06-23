@@ -7,6 +7,8 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Template3Component } from '../Templates/template3/template3.component';
 import { Template2Component } from '../Templates/template2/template2.component';
+import * as htmlDocx from 'html-docx-js-typescript';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-download-page',
@@ -17,6 +19,7 @@ import { Template2Component } from '../Templates/template2/template2.component';
 export class DownloadPageComponent {
   resume: any;
   template: any = null;
+  templateIndex: number = 0;
   injector: Injector | undefined;
   templates = [
     { component: Template1Component },
@@ -38,11 +41,38 @@ export class DownloadPageComponent {
     //Add 'implements OnInit' to the class.
     const tempString = localStorage.getItem('selectedTemplate')
     if (tempString)
-      this.template = this.templates[parseInt(tempString)].component
+      this.templateIndex = parseInt(tempString)
     const resumeString = localStorage.getItem('resume')
     if (resumeString) {
       this.resume = JSON.parse(resumeString)
     }
+  }
+  async downloadDocx() {
+    const content = document.getElementById('pdf-content');
+    if (!content) {
+      console.log('dowload-pdf' + content)
+      return;
+    }
+    const html = `
+       <!DOCTYPE html>
+      <html>
+        <head><meta charset="utf-8"></head>
+        <body>${content.outerHTML}</body>
+      </html>
+    `
+    const result = await htmlDocx.asBlob(html);
+    let blob: Blob;
+    if (result instanceof Blob) {
+      blob = result;
+    } else if (result instanceof ArrayBuffer) {
+      blob = new Blob([result], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+    } else if (result instanceof Uint8Array) {
+      blob = new Blob([result], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+    } else {
+      // Fallback: try to convert Buffer (Node.js) to Blob
+      blob = new Blob([result]);
+    }
+    saveAs(blob, 'resume-document.docx');
   }
   downloadPDF(): void {
     const content = document.getElementById('pdf-content');
@@ -50,7 +80,6 @@ export class DownloadPageComponent {
       console.log('dowload-pdf' + content)
       return;
     }
-
     html2canvas(content, { scale: 2 }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');

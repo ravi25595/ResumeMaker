@@ -15,6 +15,7 @@ import { ExperienceSummaryComponent } from "../section/experience-summary/experi
 import { Router } from '@angular/router';
 import { ExperienceUpdateComponent } from "../section/experience-update/experience-update.component";
 import { Template3Component } from '../Templates/template3/template3.component';
+import { SectionIntroComponent } from "../section/section-intro/section-intro.component";
 
 @Component({
   selector: 'app-editor',
@@ -30,7 +31,8 @@ import { Template3Component } from '../Templates/template3/template3.component';
     MatIconModule,
     EducationSummaryComponent,
     ExperienceSummaryComponent,
-    ExperienceUpdateComponent
+    ExperienceUpdateComponent,
+    SectionIntroComponent
   ],
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.scss'
@@ -50,7 +52,8 @@ export class EditorComponent {
     { title: "Additional Details", visited: false, Title: "Add More Details", subTitle: "This is an opportunity to highlight qualifications that don't fit into standard resume sections." },
     { title: "Education Summary", visited: false, Title: "Education Summary", subTitle: "" },
     { title: "Experince Summary", visited: false, Title: "Review your experience", subTitle: "Edit as needed. We have expert samples to guide and inspire you." },
-    { title: "Update Experience", visited: false, Title: "Update Experience", subTitle: "Write what you Did there..." }
+    { title: "Update Experience", visited: false, Title: "Update Experience", subTitle: "Write what you Did there..." },
+    { title: "SectionIntro", visited: false, Title: "", subTitle: "" },
   ]
   templates = [
     { component: Template1Component },
@@ -62,6 +65,7 @@ export class EditorComponent {
   animate = false;
   currentIndex = 0;
   currentMenuIndex = -1;
+  previousIndex = 0;
   educationIndex = 0;
   experienceIndex = 0;
   template: any = null;
@@ -100,25 +104,27 @@ export class EditorComponent {
     });
   }
   continue() {
-    const pre = this.currentIndex
+    localStorage.setItem('resume', JSON.stringify(this.resume))
+    this.previousIndex = this.currentIndex
     switch (this.currentIndex) {
       case 0: {
         this.sendEmail();
-        this.currentIndex++;
+        this.currentIndex = 9;
         this.currentMenuIndex++;
         break;
       }
-      case 1:
-      case 2: { this.currentIndex++; this.currentMenuIndex++; break; }
+      case 1: { this.currentIndex = 9; this.currentMenuIndex++; break; }
+      case 2: { this.currentIndex = 9; this.currentMenuIndex++; break; }
       case 3: { this.currentIndex = 8; break; }
       case 4: { this.currentIndex = 6; break; }
       case 5: { this.submitResume(); break; }
-      case 6: { this.currentIndex = 5; this.currentMenuIndex = 5; break; }
-      case 7: { this.currentIndex = this.currentMenuIndex = 4; break; }
+      case 6: { this.currentIndex = 9; this.currentMenuIndex = 5; break; }
+      case 7: { this.currentIndex = 9; this.currentMenuIndex = 4; break; }
       case 8: { this.currentIndex = 7; break; }
+      case 9: { this.currentIndex = this.currentMenuIndex; }
     }
     this.sections[this.currentIndex].visited = true
-    if (pre !== this.currentIndex) {
+    if (this.previousIndex !== this.currentIndex) {
       this.animate = false
       setTimeout(() => {
         this.animate = true

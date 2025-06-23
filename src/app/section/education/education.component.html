@@ -16,5 +16,11 @@
 </div>
 <div class="form-field">
     <label>GRADUATION DATE</label>
-    <input [(ngModel)]="resume.education[currentIndex].date" type="month" placeholder="Month" />
+    <input [(ngModel)]="resume.education[currentIndex].date" type="month" placeholder="Month"
+        [disabled]="resume.education[currentIndex].currentlyEnrolled" />
+</div>
+<div class="checkbox-field">
+    <input type="checkbox" [(ngModel)]="resume.education[currentIndex].currentlyEnrolled" name="currentlyEnrolled"
+        id="current" class="custom-checkbox" (ngModelChange)="toggleEndDate()" />
+    <label for="current" style="user-select: none; cursor: pointer;">Currently Enrolled</label>
 </div>

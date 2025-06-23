@@ -12,4 +12,8 @@ import { FormsModule } from '@angular/forms';
 export class EducationComponent {
   @Input() resume: any;
   @Input() currentIndex = 0
+  toggleEndDate() {
+    this.resume.education[this.currentIndex].date = this.resume.education[this.currentIndex].currentlyEnrolled ?
+      'Current' : ''
+  }
 }

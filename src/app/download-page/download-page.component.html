@@ -4,7 +4,7 @@
         <div class="template-container">
             @for (item of templates; track $index) {
             <div class="template-card">
-                <div class="template-preview">
+                <div class="template-preview" (click)="templateIndex = $index">
                     <ng-container
                         *ngComponentOutlet="templates[$index].component; injector: customInjector"></ng-container>
                 </div>
@@ -13,9 +13,12 @@
         </div>
     </div>
     <div id="pdf-content">
-        <ng-container *ngComponentOutlet="template; injector: customInjector"></ng-container>
+        <ng-container *ngComponentOutlet="templates[templateIndex].component; injector: customInjector"></ng-container>
     </div>
     <div class="right-container">
-        <button class="icon-btn" (click)="downloadPDF()"><mat-icon>download</mat-icon>Download</button>
+        <button mat-flat-button class="icon-btn" (click)="downloadPDF()"><mat-icon>download</mat-icon>Download
+            PDF</button>
+        <button mat-flat-button class="icon-btn" (click)="downloadDocx()"><mat-icon>download</mat-icon>Download
+            Docx</button>
     </div>
 </div>

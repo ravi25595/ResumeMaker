@@ -9,6 +9,7 @@
 </div> -->
 <div class="NgxEditor__Wrapper">
     <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
-    <ngx-editor [placeholder]="'type here...'" [editor]="editor" [(ngModel)]="resume.skills"></ngx-editor>
+    <ngx-editor [placeholder]="'type here...'" [editor]="editor" [(ngModel)]="resume.skills"
+        (ngModelChange)="resume.extractSkills= extractSkills()"></ngx-editor>
 </div>
 <!-- <main [innerHTML]="">{{resume.skills.toString()}}</main> -->

@@ -46,6 +46,8 @@
                         (parentIndexChange)="currentIndex = $event"></app-experience-summary>}
                     @case (8) {<app-experience-update [resume]="resume"
                         [currentIndex]="experienceIndex"></app-experience-update>}
+                    @case (9) {<app-section-intro [previousIndex]="previousIndex" (currentIndexChange)="continue()">
+                    </app-section-intro>}
                     }
                 </div>
                 <div class="template-card">
@@ -55,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="main-row" [class.fade-in]="animate">
+            @if(currentIndex !=9){<div class="main-row" [class.fade-in]="animate">
                 <div class="bottom-btn-bar">
                     @if (currentIndex){<button class="btn btn-outline-primary btn-lg"
                         (click)="backAction()">Back</button>}@else {<div></div>}
@@ -64,9 +66,8 @@
                         (click)="AddMore()"><mat-icon>add</mat-icon>Add
                         @if(currentIndex == 7){Experience} @else if(currentIndex == 6) {Education}</button>}
                     <button class="btn btn-primary btn-lg" (click)="continue()">Next</button>
-
                 </div>
-            </div>
+            </div>}
         </div>
     </main>
 </div>

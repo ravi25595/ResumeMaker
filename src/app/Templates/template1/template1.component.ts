@@ -9,6 +9,7 @@ import { MonthFormatPipe } from "../../month-format.pipe";
 })
 export class Template1Component {
   isPreview = true
+  skills: string[] = [];
   constructor(@Inject('templateData') public resume: any) { }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -20,5 +21,6 @@ export class Template1Component {
       this.resume = { header: {}, skills: [], experience: [{}], education: [{}] };
       console.log("this.resume = {}")
     }
+
   }
 }

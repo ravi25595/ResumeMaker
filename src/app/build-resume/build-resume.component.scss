@@ -1,7 +1,13 @@
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    // background-image: url('https://sdmntprwestus.oaiusercontent.com/files/00000000-2ec8-6230-91a3-ee30bd1d46ec/raw?se=2025-06-23T05%3A38%3A29Z&sp=r&sv=2024-08-04&sr=b&scid=610520c7-f3cb-55e5-be82-563d13ef4f31&skoid=0da8417a-a4c3-4a19-9b05-b82cee9d8868&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T23%3A51%3A58Z&ske=2025-06-23T23%3A51%3A58Z&sks=b&skv=2024-08-04&sig=UELJE99L8w3JlCCQkoexUzxAl1CLLve6Mc2PFuHwHJE%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    mask-image: url('/assets/Ink_gif.gif');
+    mask-size: cover;
+    mask-position: center;
 }
 
 .hiw-header {

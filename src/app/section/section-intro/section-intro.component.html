@@ -1,0 +1,19 @@
+<div class="container">
+    <div>
+        <p>{{sections[previousIndex].topDes}}</p>
+        <h1>
+            {{sections[previousIndex].heading}}
+            <span>{{sections[previousIndex].headingH}}</span>
+        </h1>
+        <div style="align-items: center;">
+            <p style="width: fit-content; margin: 20px auto;">
+                <strong>{{sections[previousIndex].boldContent}}</strong><br>
+                {{sections[previousIndex].normalContent}}
+            </p>
+        </div>
+    </div>
+    <div class="bottom-btn-bar">
+        <button class="btn btn-outline-primary btn-lg">Back</button>
+        <button class="btn btn-primary btn-lg" (click)="nextBtn()">Next</button>
+    </div>
+</div>

@@ -1,11 +1,12 @@
 .resume-container {
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 1000px;
+    width: 1000px;
     margin: auto;
     padding: 20px;
     background: white;
     color: #333;
     line-height: 1.6;
+    box-shadow: 0 0 10px #ccc;
 }
 
 h1.name {

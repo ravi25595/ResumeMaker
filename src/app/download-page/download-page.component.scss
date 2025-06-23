@@ -20,6 +20,10 @@
     display: flex;
     width: fit-content;
     zoom: 0.2;
+    height: 1100px;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
 }
 
 .template-card {
@@ -43,11 +47,8 @@
 }
 
 .icon-btn {
-    background-color: blue;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    color: white;
     width: 100px;
-    padding: 16px;
+    height: 100px;
+    border-radius: 5px;
+    margin: 3px;
 }

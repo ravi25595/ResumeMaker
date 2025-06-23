@@ -18,6 +18,11 @@
     transition: box-shadow 0.3s;
 }
 
+.form-field input:disabled {
+    opacity: 0.5;
+    box-shadow: 3px 3px 3px #0002;
+}
+
 .form-field input:hover {
     box-shadow: 3px 3px 3px #0002;
 }

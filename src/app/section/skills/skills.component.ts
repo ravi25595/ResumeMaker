@@ -26,12 +26,21 @@ export class SkillsComponent {
     console.log(this.resume.skills)
     if (!this.resume.skills.length)
       this.resume.skills = '<ul><li></li></ul>'
+    this.resume.extractSkills = this.extractSkills();
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     this.editor.destroy();
   }
+  extractSkills(): string[] {
+    const html = this.resume.skills || '';
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const items = Array.from(doc.querySelectorAll('li')).map(li => li.textContent?.trim() || '');
+    return items.filter(skill => skill);
+  }
+  /*
   addSkill(event: KeyboardEvent) {
     if (event.key === 'Enter' && this.skill.trim()) {
       //this.skills.push(this.skill.trim());
@@ -42,5 +51,5 @@ export class SkillsComponent {
   }
   removeSkill(index: number) {
     this.resume.skills.splice(index, 1);
-  }
+  }*/
 }
