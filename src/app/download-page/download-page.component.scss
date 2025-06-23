@@ -1,6 +1,7 @@
 .container {
     min-width: 100%;
     display: flex;
+    background-color: aliceblue;
 }
 
 .left-container {
@@ -14,6 +15,10 @@
     columns: 2;
     padding: 5px;
     gap: 5px;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 1rem #0002;
 }
 
 .template-preview {
@@ -35,10 +40,8 @@
 }
 
 .pdf-content {
-    display: flex;
-    flex: 1;
     margin: 0px;
-    background-color: aqua;
+    background-color: white;
 }
 
 .right-container {
