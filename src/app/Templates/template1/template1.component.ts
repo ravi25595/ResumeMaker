@@ -15,7 +15,7 @@ export class Template1Component {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     if (this.resume) {
-      console.log(this.resume)
+      // console.log(this.resume)
     }
     else {
       this.resume = { header: {}, skills: [], experience: [{}], education: [{}] };

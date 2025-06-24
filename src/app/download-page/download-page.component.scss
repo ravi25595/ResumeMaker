@@ -11,32 +11,63 @@
 
 .template-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    columns: 2;
+    grid-template-columns: 200px;
     padding: 5px;
-    gap: 5px;
+    gap: 3px;
     background-color: white;
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 0 1rem #0002;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    max-height: 90vh;
+    width: 225px;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+.template-card {
+    transition: 500ms;
+    filter: brightness(0.7);
+}
+
+.template-card:hover {
+    box-shadow: 0 0 5px 5px aqua;
+    transform: translateZ(60px);
+    filter: brightness(1);
+}
+
+.template-card:hover+* {
+    filter: brightness(.9);
+    transform: translateZ(40px) rotateX(-20deg);
+}
+
+.template-card:hover+*+* {
+    filter: brightness(.8);
+    transform: translateZ(20px) rotateX(-10deg);
+}
+
+.template-card:has(+*:hover) {
+    filter: brightness(.9);
+    transform: translateZ(40px) rotateX(20deg);
+}
+
+.template-card:has(+* +*:hover) {
+    filter: brightness(.8);
+    transform: translateZ(20px) rotateX(10deg);
 }
 
 .template-preview {
     display: flex;
     width: fit-content;
+    background-color: white;
     zoom: 0.2;
     height: 1100px;
     overflow: hidden;
     user-select: none;
     cursor: pointer;
-}
-
-.template-card {
-    transition: box-shadow 1s;
-}
-
-.template-card:hover {
-    box-shadow: 0 0 5px 5px aqua;
 }
 
 .pdf-content {
