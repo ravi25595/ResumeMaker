@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { ExperienceUpdateComponent } from "../section/experience-update/experience-update.component";
 import { Template3Component } from '../Templates/template3/template3.component';
 import { SectionIntroComponent } from "../section/section-intro/section-intro.component";
+import { Template4Component } from '../Templates/template4/template4.component';
 
 @Component({
   selector: 'app-editor',
@@ -59,6 +60,7 @@ export class EditorComponent {
     { component: Template1Component },
     { component: Template2Component },
     { component: Template3Component },
+    { component: Template4Component },
     { component: Template1Component },
     { component: Template1Component }
   ];

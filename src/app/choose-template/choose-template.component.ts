@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { Template2Component } from '../Templates/template2/template2.component';
 import { Template3Component } from '../Templates/template3/template3.component';
+import { Template4Component } from '../Templates/template4/template4.component';
 @Component({
   selector: 'app-choose-template',
   imports: [NgClass, NgStyle, NgComponentOutlet, MatButtonModule, RouterLink],
@@ -28,8 +29,9 @@ export class ChooseTemplateComponent {
     { component: Template1Component },
     { component: Template2Component },
     { component: Template3Component },
+    { component: Template4Component },
     { component: Template1Component },
-    { component: Template1Component },
+    { component: Template1Component }
   ];
   resume: any;
   constructor(private injector: Injector) { }

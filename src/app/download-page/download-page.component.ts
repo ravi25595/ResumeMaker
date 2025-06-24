@@ -1,14 +1,16 @@
 import { Component, Injector } from '@angular/core';
-import { Template1Component } from "../Templates/template1/template1.component";
 import { NgComponentOutlet } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { Template3Component } from '../Templates/template3/template3.component';
-import { Template2Component } from '../Templates/template2/template2.component';
 import * as htmlDocx from 'html-docx-js-typescript';
 import { saveAs } from 'file-saver';
+
+import { Template1Component } from "../Templates/template1/template1.component";
+import { Template2Component } from '../Templates/template2/template2.component';
+import { Template3Component } from '../Templates/template3/template3.component';
+import { Template4Component } from '../Templates/template4/template4.component';
 
 @Component({
   selector: 'app-download-page',
@@ -17,6 +19,10 @@ import { saveAs } from 'file-saver';
   styleUrl: './download-page.component.scss'
 })
 export class DownloadPageComponent {
+  //Add 'implements OnInit' to the class.
+  setTemplateIndex(index: number) {
+    this.templateIndex = index;
+  }
   resume: any;
   template: any = null;
   templateIndex: number = 0;
@@ -25,6 +31,7 @@ export class DownloadPageComponent {
     { component: Template1Component },
     { component: Template2Component },
     { component: Template3Component },
+    { component: Template4Component },
     { component: Template1Component },
     { component: Template1Component }
   ];

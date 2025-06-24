@@ -2,9 +2,10 @@
     <div class="left-container">
         <img src="/assets/resumenow.svg" alt="logo">
         <div class="template-container">
+            <h6>Templates</h6>
             @for (item of templates; track $index) {
             <div class="template-card">
-                <div class="template-preview" (click)="templateIndex = $index">
+                <div class="template-preview" (click)="setTemplateIndex($index)">
                     <ng-container
                         *ngComponentOutlet="templates[$index].component; injector: customInjector"></ng-container>
                 </div>

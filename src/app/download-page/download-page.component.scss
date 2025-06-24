@@ -14,18 +14,19 @@
     grid-template-columns: 200px;
     padding: 5px;
     gap: 3px;
-    background-color: white;
+    background-color: #01237a44;
     padding: 8px;
     border-radius: 8px;
-    box-shadow: 0 0 1rem #0002;
+    box-shadow: 0 0 1rem #000;
     transform-style: preserve-3d;
     transform: perspective(1000px);
     max-height: 90vh;
-    width: 225px;
+    width: fit-content;
     scroll-behavior: smooth;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
+    scrollbar-color: #999 #01237a44;
 }
 
 .template-card {
