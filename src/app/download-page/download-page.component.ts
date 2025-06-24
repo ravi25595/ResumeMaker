@@ -50,7 +50,7 @@ export class DownloadPageComponent {
   async downloadDocx() {
     const content = document.getElementById('pdf-content');
     if (!content) {
-      console.log('dowload-pdf' + content)
+      console.log('dowload-docs' + content)
       return;
     }
     const html = `
