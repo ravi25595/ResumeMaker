@@ -85,8 +85,8 @@
 
         <section>
             <h2>Summary</h2>
-            @if (resume.summary?.length) {
-            <p>{{resume.summary}}</p>
+            @if (resume.summary?.length>7) {
+            <p [innerHTML]="resume.summary"></p>
             }
             @else {
             <p>

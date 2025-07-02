@@ -8,10 +8,12 @@
     background-color: #0366d6;
     position: absolute;
     bottom: 0px;
+    left: 0px;
     width: 100%;
     transform: scaleX(0);
+    transform-origin: left;
     height: 3px;
-    transition: transform 1s;
+    transition: transform 500ms;
 }
 
 .NgxEditor__Wrapper:focus-within::after {

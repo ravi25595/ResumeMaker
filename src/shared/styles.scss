@@ -54,3 +54,24 @@
     transform: scaleX(1);
 
 }
+
+.form-field select {
+    flex: 1;
+    padding: 10px 16px;
+    background-color: #00000005;
+    border: 1px solid #0002;
+    border-radius: 3px;
+    transition: box-shadow 0.3s;
+}
+
+.form-field select:focus {
+    outline: none;
+}
+
+.form-field select:hover {
+    box-shadow: 3px 3px 3px #0002;
+}
+
+.form-field:has(select:focus)::after {
+    transform: scaleX(1);
+}

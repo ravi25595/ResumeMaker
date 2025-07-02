@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    mask-image: url('/assets/ink_intro.gif');
+    background-image: url('/assets/bg.png');
+    mask-size: cover;
 }
 
 .container {
@@ -21,7 +24,7 @@
     content: '';
     width: 500px;
     height: 500px;
-    background: radial-gradient(50% 50% at 50% 50%, #ff4d00 0, #fff 100%);
+    background: radial-gradient(50% 50% at 50% 50%, #ff4d00 0, #fff1 100%);
     border-radius: 50%;
     position: absolute;
     top: -145px;
@@ -214,7 +217,7 @@ p.level {
     content: '';
     width: 400px;
     height: 400px;
-    background: radial-gradient(50% 50% at 50% 60%, #2f5cf8, white 100%);
+    background: radial-gradient(50% 50% at 50% 60%, #2f5cf8, #fff1 100%);
     position: absolute;
     bottom: -200px;
     right: 200px;

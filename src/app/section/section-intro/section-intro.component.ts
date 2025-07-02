@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-section-intro',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './section-intro.component.html',
   styleUrl: './section-intro.component.scss'
 })

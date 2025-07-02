@@ -38,6 +38,10 @@ h1 {
     font-family: "Work Sans", sans-serif;
     font-weight: 800;
     font-size: 58px;
+    opacity: 0;
+    transform: translateY(300px);
+    animation: slidUp 1s ease forwards;
+    animation-delay: 400ms;
 }
 
 h1 span {
@@ -56,6 +60,10 @@ h1 span::after {
 
 p {
     font-family: "Inter", sans-serif;
+    opacity: 0;
+    transform: translateY(300px);
+    animation: slidUp 1s ease forwards;
+    animation-delay: 300ms;
 }
 
 .bottom-btn-bar {
@@ -73,8 +81,45 @@ p {
     align-items: center;
     justify-content: center;
     margin: 0px 10px;
+    transform: translateY(300px);
+    animation: slidUp 900ms ease-out forwards;
 }
 
 .btn-lg:hover {
     box-shadow: 0 0 30px #0d6efd;
+}
+
+ul {
+    list-style-type: none;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul li {
+    padding: 8px;
+    text-justify: center;
+    font-weight: 800;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(200px);
+    animation: slidUp 600ms ease-out forwards;
+}
+
+ul li mat-icon {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    align-content: center;
+    text-align: center;
+}
+
+@keyframes slidUp {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }

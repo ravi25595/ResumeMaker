@@ -71,7 +71,7 @@ export class EditorComponent {
   educationIndex = 0;
   experienceIndex = 0;
   template: any = null;
-  resume: any = { header: {}, skills: [], experience: [{}], education: [{}] };
+  resume: any = { header: {}, skills: [], summary: '', experience: [{}], education: [{}] };
   constructor(private injector: Injector, private router: Router) { }
 
   ngOnInit(): void {

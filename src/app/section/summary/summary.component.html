@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="form-field">
-        <textarea [(ngModel)]="resume.summary" placeholder="Write Summary"></textarea>
-    </div>
+    <!-- <textarea [(ngModel)]="resume.summary" placeholder="Write Summary"></textarea> -->
+    <ngx-editor-menu [toolbar]="toolbar" [editor]="editor"></ngx-editor-menu>
+    <ngx-editor [editor]="editor" [(ngModel)]="resume.summary"></ngx-editor>
 </div>

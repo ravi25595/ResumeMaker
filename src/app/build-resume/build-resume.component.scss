@@ -1,11 +1,11 @@
 .page-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    // background-image: url('https://sdmntprwestus.oaiusercontent.com/files/00000000-2ec8-6230-91a3-ee30bd1d46ec/raw?se=2025-06-23T05%3A38%3A29Z&sp=r&sv=2024-08-04&sr=b&scid=610520c7-f3cb-55e5-be82-563d13ef4f31&skoid=0da8417a-a4c3-4a19-9b05-b82cee9d8868&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-22T23%3A51%3A58Z&ske=2025-06-23T23%3A51%3A58Z&sks=b&skv=2024-08-04&sig=UELJE99L8w3JlCCQkoexUzxAl1CLLve6Mc2PFuHwHJE%3D');
-    background-repeat: no-repeat;
-    background-size: cover;
-    mask-image: url('/assets/Ink_gif.gif');
+    min-height: 100vh;
+    // background-image: url('/assets/bg.png');
+    // background-size: cover;
+    // background-color: #2246c3;
+    mask-image: url('/assets/ink_intro.gif');
     mask-size: cover;
     mask-position: center;
 }
@@ -37,7 +37,7 @@
     content: '';
     width: 436px;
     height: 436px;
-    background: radial-gradient(50% 50% at 50% 50%, #dc9272 0, #fff 100%);
+    background: radial-gradient(50% 50% at 50% 50%, #dc9272 0, #ffffff00 100%);
     border-radius: 50%;
     position: absolute;
     top: -145px;
@@ -163,7 +163,7 @@ ul li:last-child {
     content: '';
     width: 400px;
     height: 400px;
-    background: radial-gradient(50% 50% at 50% 60%, #2f5cf8, white 100%);
+    background: radial-gradient(50% 50% at 50% 60%, #2f5cf8, rgba(255, 255, 255, 0) 100%);
     position: absolute;
     bottom: -200px;
     right: 200px;

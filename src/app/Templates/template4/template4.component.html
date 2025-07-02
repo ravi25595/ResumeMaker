@@ -1,22 +1,64 @@
-<div style="font-family: 'Georgia', serif; max-width: 1000px; margin: auto; padding: 40px; color: #333;">
-    <h1 style="text-align: center; margin-bottom: 0;">
-        {{(resume.header.fName+" "+resume.header.lName).trim() || "YOUR NAME"}}
+<div style="font-family: 'Georgia', serif; max-width: 1000px;padding: 40px;">
+    <h1 style="text-align: center; margin-bottom: 0; font-variant: small-caps;">
+        {{(resume?.header?.fName || resume?.header?.lName)?
+        (resume?.header?.fName+' '+resume?.header?.lName).trim() : "YOUR NAME"}}
     </h1>
-    <p style="text-align: center; margin-top: 5px;">d.aggarwal&#64;sample.in</p>
+    <p style="text-align: center; margin-top: 5px; font-family: 'Inter', sans-serif;">
+        {{resume?.header?.email?.trim() || "d.aggarwal&#64;sample.in"}} |
+        {{resume?.header?.phone?.trim() || "+91 67481 48546"}} |
+        {{resume?.header?.city?.trim() || "New Delhi"}},
+        {{resume?.header?.country || "India"}}
+    </p>
 
-    <hr style="margin: 30px 0;">
-    <h2 style="text-align: center; font-size: 20px; font-weight: normal; letter-spacing: 1px;">Summary</h2>
-    <p style="text-align: justify; margin: 10px 0 30px;">
-        Customer-focused Retail Sales professional with solid understanding of retail dynamics, marketing and customer
+    <div style="position: relative;">
+        <h2 style="
+                justify-self: center;
+                font-size: 20px;
+                font-weight: normal;
+                letter-spacing: 1px;
+                background-color:white;
+                padding: 0 10px;
+                width: fit-content;
+                position: relative;
+                z-index: 2;
+                font-variant: small-caps;
+                ">
+            Summary</h2>
+        <hr style="
+                position: absolute;
+                top: 0%;
+                width: 100%;
+                opacity: 1;
+                z-index: 1;
+            ">
+    </div>
+    @if (resume?.summary?.length>7){<p [innerHTML]="resume.summary">
+    </p>}
+    @else {
+    <p style="text-align: justify; margin: 10px 0 10px;">
+        Customer-focused Retail Sales professional with solid understanding of retail dynamics,
+        marketing and customer
         service. Offering 5 years of experience providing quality product recommendations and solutions to meet customer
         needs and exceed expectations. Demonstrated record of exceeding revenue targets by leveraging communication
         skills and sales expertise.
-    </p>
-
-    <hr style="margin: 30px 0;">
-    <h2 style="text-align: center; font-size: 20px; font-weight: normal; letter-spacing: 1px;">Skills</h2>
-    <div style="display: flex; justify-content: space-between; margin: 10px 0 30px;">
-        <ul style="list-style: disc; margin: 0; padding-left: 20px;">
+    </p>}
+    <div style="
+        position:relative;">
+        <hr style="position: absolute; width:100%;opacity: 1">
+        <h2
+            style="font-size: 20px; font-weight: normal; letter-spacing: 1px; background-color:white;width: fit-content; justify-self: center; position:relative; padding: 0 10px; font-variant:small-caps;">
+            Skills
+        </h2>
+    </div>
+    <div style="display: flex;margin: 10px 0 0;">
+        @if (resume?.extractSkills && resume?.extractSkills?.length) {
+        <ul style="display: grid; grid-template-columns: 1fr 1fr;gap: 6px 20px; list-style: disc inside; width:100%;">
+            @for (item of resume.extractSkills; track $index) {
+            <li>{{item}}</li>
+            }
+        </ul>
+        }
+        @else{<ul style="list-style: disc; margin: 0; padding-left: 20px;">
             <li>Cash register operation</li>
             <li>POS system operation</li>
             <li>Sales expertise</li>
@@ -27,13 +69,25 @@
             <li>Accurate money handling</li>
             <li>Documentation and recordkeeping</li>
             <li>Retail merchandising expertise</li>
-        </ul>
+        </ul>}
     </div>
-
-    <hr style="margin: 30px 0;">
-    <h2 style="text-align: center; font-size: 20px; font-weight: normal; letter-spacing: 1px;">Experience</h2>
-
+    <div style="position: relative;">
+        <hr style="position: absolute; width:100%;opacity: 1;">
+        <h2
+            style="font-size: 20px; font-weight: normal; letter-spacing: 1px; justify-self:center; background-color:white; width:fit-content;padding: 0 10px;position:relative; font-variant:small-caps">
+            Experience</h2>
+    </div>
+    @if (resume?.experience[0].jobTitle || resume?.experience[0].employer) {
+    @for (item of resume.experience; track $index) {
     <p style="margin: 10px 0;">
+        <strong>{{item.jobTitle}} | {{item.employer}}</strong> - {{item.city}}, {{item.country}} |
+        {{item.startDate|monthFormat}} -
+        {{item.endDate|monthFormat}}
+    </p>
+    <div [innerHTML]="item.desc"></div>
+    }
+    }
+    @else{<p style="margin: 10px 0;">
         <strong>Retail Sales Associate</strong> | ZARA - New Delhi, India | 02/2017 - Current
     </p>
     <ul style="list-style: disc; margin: 0 0 20px 20px;">
@@ -52,14 +106,104 @@
         <li>Managed morning rush of over 300 customers daily with efficient, levelheaded customer service.</li>
         <li>Trained entire staff of 15 baristas in new smoothie program offerings and procedures.</li>
         <li>Developed creative and appealing latte art techniques and instructed coworkers in method.</li>
-    </ul>
+    </ul>}
 
-    <hr style="margin: 30px 0;">
-    <h2 style="text-align: center; font-size: 20px; font-weight: normal; letter-spacing: 1px;">Education and Training
-    </h2>
-
-    <p style="text-align: center; margin-top: 10px;">
+    <div style="position: relative;">
+        <hr style="position: absolute;width:100%; opacity:1">
+        <h2
+            style="position: relative;font-variant:small-caps;font-size: 20px; font-weight: normal; letter-spacing: 1px;background-color:white; width:fit-content; padding: 0 10px; justify-self: center">
+            Education and Training
+        </h2>
+    </div>
+    @if (resume?.education[0].instituteName) {
+    @for (item of resume.education; track $index) {
+    <p style="text-align:center;justify-content:space-between; margin-top: 10px;">
+        {{item.instituteName}} | {{item.location}} | {{item.date|monthFormat}} <br>
+        <strong>{{item.degree}}, {{item.fos}}</strong>
+    </p>
+    }
+    }
+    @else{<p style="text-align: center; margin-top: 10px;">
         Oxford Software Institute & Oxford School of English | New Delhi, India | 2016 <br>
         <strong>Diploma in Financial Accounting</strong>
-    </p>
+    </p>}
+    @if(resume?.additional?.activities && resume?.additional?.activities != "<p></p>"){<div style="position: relative;">
+        <hr style="position: absolute;width:100%; opacity:1">
+        <h2
+            style="position: relative;font-variant:small-caps;font-size: 20px; font-weight: normal; letter-spacing: 1px;background-color:white; width:fit-content; padding: 0 10px; justify-self: center">
+            Activities
+        </h2>
+    </div>
+    <div [innerHTML]="resume.additional.activities"></div>
+    }
+    @if(resume?.additional?.awards && resume?.additional.awards != '<p></p>'){<div style="position: relative;">
+        <hr style="position: absolute;width:100%; opacity:1">
+        <h2
+            style="position: relative;font-variant:small-caps;font-size: 20px; font-weight: normal; letter-spacing: 1px;background-color:white; width:fit-content; padding: 0 10px; justify-self: center">
+            Accomplishments
+        </h2>
+    </div>
+    <div [innerHtml]="resume.additional.awards"></div>
+    }
+    @if(resume?.additional?.certifications && resume?.additional?.certifications != '<p></p>'){<div
+        style="position: relative;">
+        <hr style="position: absolute;width:100%; opacity:1">
+        <h2
+            style="position: relative;font-variant:small-caps;font-size: 20px; font-weight: normal; letter-spacing: 1px;background-color:white; width:fit-content; padding: 0 10px; justify-self: center">
+            Certifications
+        </h2>
+    </div>
+    <div [innerHTML]="resume.additional.certifications"></div>
+    }
+    @if(resume?.additional.languages.length>0){<div style="position: relative;">
+        <hr style="position: absolute;width:100%; opacity:1">
+        <h2
+            style="position: relative;font-variant:small-caps;font-size: 20px; font-weight: normal; letter-spacing: 1px;background-color:white; width:fit-content; padding: 0 10px; justify-self: center">
+            Languages
+        </h2>
+    </div>
+    <ul style="display: flex; flex-wrap:wrap; justify-content: space-between; padding: 0px;">
+        @for (language of resume.additional.languages; track $index) {
+        <li style="width: fit-content; list-style-type:none;">
+            <p>{{language.language}}</p>
+            <div style="display: flex; gap: 5px;">
+                @for (item of proficiencyLevels; track $index) {
+                @if($index<6){@if (language.proficiency>=$index){
+                    <div style="background-color: black; height: 5px; width: 60px;"></div>
+                    }@else {
+                    <div style="background-color: grey; height: 5px; width: 60px;"></div>
+                    }}
+                    }
+            </div>
+            <p>{{proficiencyLevels[language.proficiency]}}</p>
+        </li>
+        }
+    </ul>
+    }
+    @if(resume?.additional.languages.length>0){
+    <div style="position: relative;">
+        <hr style="position: absolute;width:100%; opacity:1">
+        <h2
+            style="position: relative;font-variant:small-caps;font-size: 20px; font-weight: normal; letter-spacing: 1px;background-color:white; width:fit-content; padding: 0 10px; justify-self: center">
+            Websites and Social links
+        </h2>
+        <ul>
+            @for (item of resume?.additional?.links; track $index) {
+            <li>
+                <a [href]="item">{{item}}</a>
+            </li>
+            }
+        </ul>
+    </div>
+    }
+    @for (item of resume?.additional?.customs; track $index) {
+    @if(item.desc?.length>8){<div style="display: flex;">
+        <hr style="opacity: 1; flex: 1;">
+        @if(item.title){<h2 style="margin: 0 10px; font-variant: small-caps;letter-spacing: 1px; font-size: 20px;">
+            {{item.title}}</h2>}
+        <hr style="opacity: 1; flex: 1;">
+    </div>
+    <div [innerHTML]="resume?.additional?.customs[$index].desc">
+    </div>}
+    }
 </div>

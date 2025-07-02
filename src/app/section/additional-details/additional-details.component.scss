@@ -1,6 +1,45 @@
+mat-expansion-panel-header {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    height: auto !important;
+}
+
+mat-expansion-panel-header div {
+    display: flex;
+    gap: 10px;
+}
+
+mat-expansion-panel-header div div {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+mat-expansion-panel-header mat-icon {
+    min-width: 40px;
+    height: 40px;
+    font-size: 32px;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+}
+
+mat-expansion-panel-header h6 {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0px;
+}
+
+mat-expansion-panel-header small {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+}
+
 .NgxEditor__Wrapper {
-    height: 500px;
     position: relative;
+    z-index: 2;
 }
 
 .NgxEditor__Wrapper::after {
@@ -8,12 +47,113 @@
     background-color: #0366d6;
     position: absolute;
     bottom: 0px;
+    left: 0px;
     width: 100%;
     transform: scaleX(0);
+    transform-origin: left;
     height: 3px;
     transition: transform 1s;
+    z-index: 1;
 }
 
 .NgxEditor__Wrapper:focus-within::after {
     transform: scaleX(1);
+}
+
+ngx-editor {
+    height: 50px;
+}
+
+.indicator-icon {
+    height: 20px !important;
+    min-width: 20px !important;
+    font-size: 20px !important;
+    min-width: unset;
+    min-height: unset;
+    color: greenyellow;
+    background: radial-gradient(#000, #fff3, #fff3);
+}
+
+.active-border {
+    border: 2px solid greenyellow;
+}
+
+.language-item {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.language-item mat-icon {
+    color: #0366d6;
+}
+
+.custom-section {
+    box-shadow: 0 0 5px #0004;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.customs-list {
+    list-style-type: none;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.my-box {
+    position: relative;
+}
+
+.my-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-image: repeating-linear-gradient(to right,
+            black 0 10px,
+            transparent 10px 25px);
+}
+
+mat-expansion-panel-header.custom-section-header {
+    display: flex;
+}
+
+mat-panel-description {
+    gap: 8px;
+    max-width: fit-content;
+}
+
+mat-panel-description button {
+    color: #0366d6;
+    padding: 0px;
+}
+
+mat-expansion-panel ul {
+    padding: 0px;
+}
+
+.checkbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 10px;
+}
+
+.checkbox-header label {
+    user-select: none;
+    cursor: pointer;
+}
+
+.checkbox-header input[type="checkbox"] {
+    height: 25px;
+    width: 25px;
 }

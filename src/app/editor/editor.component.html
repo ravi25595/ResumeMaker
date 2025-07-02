@@ -1,26 +1,43 @@
 <div class="container">
     <aside class="aside-nav dark-aside" [class.thin-nav]="currentIndex == currentMenuIndex">
+        <mat-icon style="color: white;margin-bottom: auto;">menu</mat-icon>
         <ul>
             @for (section of sections; track $index)
             {
             @if ($index<6) { <li (click)="setActive($index)" matTooltip="section.title">
                 @if (currentMenuIndex == $index) {
                 <span class="progress-fill-container">
-                    <img src="/assets/done_bg.svg">
+                    <svg width="29" height="28" class="filled" viewBox="0 0 29 28" fill="#97ECA3"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path id="Vector 29"
+                            d="M7.49826 2C4.57435 4.80621 2 8.51113 2 13.4826C2 18.2684 5.24904 22.7808 8.51646 24.4867C11.38 25.9817 15.2713 26.3637 18.2912 25.6562C22.0292 24.7805 23.899 22.7873 26.1109 18.7454C28.4995 14.3807 25.6569 7.92864 22.5269 5.82753C18.7221 3.27352 12.5089 2.35348 8.51646 5.82753"
+                            stroke="#D3FED9" stroke-width="3" stroke-linecap="round"></path>
+                    </svg>
                     <span class="progress-fill-no">{{$index+1}}</span></span>
                 }@else if (section.visited) {
-                <span class="progress-fill-container" [class.visited]="section.visited"><img
-                        src="/assets/done_round.svg"><span class="progress-fill-no"></span></span>
+                <span class="progress-fill-container" [class.visited]="section.visited">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                        <path
+                            d="M6.49826 1C3.57435 3.80621 1 7.51113 1 12.4826C1 17.2684 4.24904 21.7808 7.51646 23.4867C10.38 24.9817 14.2713 25.3637 17.2912 24.6562C21.0292 23.7805 22.899 21.7873 25.1109 17.7454C27.4995 13.3807 24.6569 6.92864 21.5269 4.82753C17.7221 2.27352 11.5089 1.35348 7.51646 4.82753"
+                            stroke="white" stroke-linecap="round"></path>
+                    </svg>
+                </span>
                 }
                 @else {
-                <span class="progress-fill-container"><img src="/assets/done_round.svg"><span
-                        class="progress-fill-no"></span></span>
+                <span class="progress-fill-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+                        <path
+                            d="M6.49826 1C3.57435 3.80621 1 7.51113 1 12.4826C1 17.2684 4.24904 21.7808 7.51646 23.4867C10.38 24.9817 14.2713 25.3637 17.2912 24.6562C21.0292 23.7805 22.899 21.7873 25.1109 17.7454C27.4995 13.3807 24.6569 6.92864 21.5269 4.82753C17.7221 2.27352 11.5089 1.35348 7.51646 4.82753"
+                            stroke="white" stroke-linecap="round"></path>
+                    </svg>
+                </span>
                 }
                 <h6>{{section.title}}</h6>
                 </li>
                 }
                 }
         </ul>
+        <mat-icon style="color: white; margin-top: auto;">menu</mat-icon>
     </aside>
     <main>
         <div class="main-container">
@@ -55,6 +72,7 @@
                         <ng-container *ngComponentOutlet="template; injector: customInjector"></ng-container>
                         <!-- <template></template> -->
                     </div>
+                    <a>Change Template</a>
                 </div>
             </div>
             @if(currentIndex !=9){<div class="main-row" [class.fade-in]="animate">

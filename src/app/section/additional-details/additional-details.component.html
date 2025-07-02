@@ -1,3 +1,200 @@
+<div>
+    <mat-accordion>
+        <mat-expansion-panel
+            [class.active-border]="resume.additional.activities && resume.additional.activities != '<p></p>'">
+            <mat-expansion-panel-header>
+                <div>
+                    <mat-icon>volunteer_activism</mat-icon>
+                    <div>
+                        <h6>Activities
+                            @if(resume.additional.activities && resume.additional.activities != "<p></p>"){<mat-icon
+                                class="indicator-icon">verified</mat-icon>}
+                        </h6>
+                        <small>Show that you're a well-rounded individual! This highlights your ability to balance
+                            different
+                            aspects of your life.</small>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="activityEditor" [toolbar]="toolbar"></ngx-editor-menu>
+                <ngx-editor
+                    [placeholder]="'it could be anything from beekeeping to urban Gardening to Ethical Fashion!'"
+                    [editor]="activityEditor" [(ngModel)]="resume.additional.activities"></ngx-editor>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.active-border]="resume.additional.awards && resume.additional.awards != '<p></p>'">
+            <mat-expansion-panel-header>
+                <div>
+                    <mat-icon>emoji_events</mat-icon>
+                    <div>
+                        <h6>Awards, Accomplishments, and Honors
+                            @if (resume.additional.awards && resume.additional.awards != '<p></p>') {
+                            <mat-icon class="indicator-icon">verified</mat-icon>
+                            }
+                        </h6>
+                        <small>Did you receive awards, exceed targets, earn a leadership role or achieve recognition of
+                            some
+                            sort? Make them shine in this section.</small>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="awardsEditor" [toolbar]="toolbar"></ngx-editor-menu>
+                <ngx-editor
+                    placeholder="include anything you've authored or co-authered. For example : abrand logo project, a best selling book"
+                    [editor]="awardsEditor" [(ngModel)]="resume.additional.awards"></ngx-editor>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+            [class.active-border]="resume.additional.certifications && resume.additional.certifications != '<p></p>'">
+            <mat-expansion-panel-header>
+                <div>
+                    <mat-icon>verified</mat-icon>
+                    <div>
+                        <h6>Certification and Licenses
+                            @if (resume.additional.certifications && resume.additional.certifications != '<p></p>') {
+                            <mat-icon class="indicator-icon">verified</mat-icon>
+                            }
+                        </h6>
+                        <small>Elevate your resume with noteworthy credentials that prove you are an expert in your
+                            field.</small>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="certificationEditor" [toolbar]="toolbar"></ngx-editor-menu>
+                <ngx-editor
+                    [placeholder]="'it could be anything from beekeeping to urban Gardening to Ethical Fashion!'"
+                    [editor]="certificationEditor" [(ngModel)]="resume.additional.certifications"></ngx-editor>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.active-border]="resume.additional.languages.length">
+            <mat-expansion-panel-header>
+                <div>
+                    <mat-icon>language</mat-icon>
+                    <div>
+                        <h6>Languages
+                            @if (resume.additional.languages.length) {
+                            <mat-icon class="indicator-icon">verified</mat-icon>
+                            }
+                        </h6>
+                        <small>If you are proficient in one or more languages, mention them in this section.</small>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            @for (language of languages; track $index) {
+            <button mat-button
+                (click)="resume.additional.languages.push({language: language, proficiency: 5})">+{{language}}</button>
+            }
+            @for(language of resume.additional.languages; track $index;){<div class="language-item">
+                <div class="form-field">
+                    <label>LANGUAGE</label>
+                    <input type="text" matInput (ngModelChange)="_filter($event)"
+                        [(ngModel)]="resume.additional.languages[$index].language" [matAutocomplete]="auto"
+                        name="language" placeholder="Select or type language">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        @for (item of filteredLanguages; track $index) {
+                        <mat-option [value]="item">
+                            {{item}}
+                        </mat-option>
+                        }
+                    </mat-autocomplete>
+                </div>
+                <div class="form-field">
+                    <label>{{"Proficiency".toUpperCase()}}</label>
+                    <select [(ngModel)]="resume.additional.languages[$index].proficiency">
+                        @for(item of proficiencyLevels; track $index)
+                        {<option [value]="$index">{{item}}</option>}
+                    </select>
+                </div>
+                <button mat-icon-button><mat-icon>open_with</mat-icon></button>
+                <button mat-icon-button (click)="deleteLanguage($index)"><mat-icon>delete</mat-icon></button>
+            </div>}
+            <button mat-button (click)="resume.additional.languages.push({proficiency:5})">+Add Language</button>
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.active-border]="resume.additional.links[0]">
+            <mat-expansion-panel-header>
+                <div>
+                    <mat-icon class="my-box">person</mat-icon>
+                    <div>
+                        <h6>Websites and Social links
+                            @if (resume.additional.links[0]) {
+                            <mat-icon class="indicator-icon">verified</mat-icon>
+                            }
+                        </h6>
+                        <small>Include a direct link to your portfolio or samples of your work for an added boost. Let
+                            your skills speak for themselves!</small>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <ul>
+                @for (item of resume.additional.links; track $index)
+                {<li class="language-item">
+                    <div class="form-field">
+                        <label>LINK/URL</label>
+                        <input [(ngModel)]="resume.additional.links[$index]" />
+                    </div>
+                    <div class="checkbox-header">
+                        <input type="checkbox" [attr.id]="'checkbox' + $index">
+                        <label [attr.for]="'checkbox' + $index">Add to header</label>
+                    </div>
+                    <button mat-icon-button (click)="deleteLink($index)"><mat-icon>delete</mat-icon></button>
+                </li>}
+            </ul>
+            <button mat-button (click)="addLink()" [disabled]="resume.additional.links.includes('')">+Add
+                Another</button>
+        </mat-expansion-panel>
+        <mat-expansion-panel [class.active-border]="resume.additional.customs[0]?.desc">
+            <mat-expansion-panel-header>
+                <div>
+                    <mat-icon>edit</mat-icon>
+                    <div>
+                        <h6>Add your own
+                            @if (resume.additional.customs[0]?.desc) {
+                            <mat-icon class="indicator-icon">verified</mat-icon>
+                            }
+                        </h6>
+                        <small>Use this space to build a custom section, and make it your own.</small>
+                    </div>
+                </div>
+            </mat-expansion-panel-header>
+            <mat-accordion class="customs-list">
+                @for (item of resume?.additional?.customs; track $index)
+                {<mat-expansion-panel class="custom-section" [expanded]="$index == resume.additional.customs.length-1">
+                    <mat-expansion-panel-header class="custom-section-header">
+                        <mat-panel-title>
+                            <h6>Custom section {{$index+1}}</h6>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <button mat-icon-button
+                                (click)="stringify(resume.additional.customs); $event.stopPropagation();"><mat-icon>open_with</mat-icon></button>
+                            <button mat-icon-button
+                                (click)="deleteCustoms($index); $event.stopPropagation();"><mat-icon>delete</mat-icon></button>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="form-field">
+                        <label>SECTION NAME</label>
+                        <input [(ngModel)]="resume.additional.customs[$index].title" />
+                    </div>
+                    <div class="form-field">
+                        <label>BRIEF DESCRIPTION</label>
+                        <div class="NgxEditor__Wrapper">
+                            <ngx-editor-menu [editor]="editors[$index]" [toolbar]="toolbar"></ngx-editor-menu>
+                            <ngx-editor [editor]="editors[$index]" [(ngModel)]="resume.additional.customs[$index].desc"
+                                [placeholder]="'it could be anything from beekeeping to urban Gardening to Ethical Fashion!'">
+                            </ngx-editor>
+                        </div>
+                    </div>
+                </mat-expansion-panel>}
+            </mat-accordion>
+            <button mat-button (click)="AddCustomSection()"
+                [disabled]="resume.additional?.customs?.length!=0&&resume.additional?.customs[resume.additional.customs?.length-1]?.desc?.length < 8">+Add
+                Another</button>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<!-- 
 <div class="NgxEditor__Wrapper">
     <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
     <ngx-editor [placeholder]="'Languages
@@ -13,4 +210,4 @@
     Red Cross Volunteer
     Taught classes in lifesaving skills including: CPR, First Aid'" [editor]="editor"
         [(ngModel)]="resume.additional"></ngx-editor>
-</div>
+</div> -->

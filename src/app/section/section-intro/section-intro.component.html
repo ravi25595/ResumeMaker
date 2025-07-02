@@ -8,7 +8,19 @@
         <div style="align-items: center;">
             <p style="width: fit-content; margin: 20px auto;">
                 <strong>{{sections[previousIndex].boldContent}}</strong><br>
-                {{sections[previousIndex].normalContent}}
+                @if(previousIndex==6){
+            <ul>
+                <li style="animation-delay: 0ms;"><mat-icon>language</mat-icon> Languages</li>
+                <li style="animation-delay: 200ms;"><mat-icon>emoji_events</mat-icon> Awards, Accomplishments, and
+                    Honors
+                </li>
+                <li style="animation-delay: 400ms;"><mat-icon>verified</mat-icon> Certification and Licenses</li>
+                <li style="animation-delay: 600ms;"><mat-icon>volunteer_activism</mat-icon> Activities</li>
+                <li style="animation-delay: 800ms;"><mat-icon>hub</mat-icon> Websites and Social Links</li>
+                <li style="animation-delay: 1000ms;"><mat-icon>badge</mat-icon> References</li>
+            </ul>
+            }
+            @else{{{sections[previousIndex].normalContent}}}
             </p>
         </div>
     </div>
