@@ -44,13 +44,10 @@
     content: '';
     position: absolute;
     inset: -5px;
-    background: conic-gradient(from var(--angle),
-            #d11149, #060c21, #0c63e7,
-            #060c21, #d11149,
-        );
+    background: conic-gradient(from var(--angle), red, yellow, green, blue);
     z-index: -2;
-    opacity: 0.7;
-    filter: blur(20px);
+    opacity: 0.5;
+    filter: blur(25px);
     animation: glowing-border 3s linear infinite;
 }
 
@@ -58,10 +55,7 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: conic-gradient(from var(--angle),
-            #d11149, #060c2155, #0c63e7,
-            #060c2155, #d11149,
-        );
+    background: conic-gradient(from var(--angle), red, yellow, green, blue);
     z-index: -1;
     animation: glowing-border 3s linear infinite;
 }

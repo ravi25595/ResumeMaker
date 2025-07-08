@@ -10,6 +10,7 @@ import { MonthFormatPipe } from "../../month-format.pipe";
 export class Template1Component {
   isPreview = true
   skills: string[] = [];
+  proficiencyLevels = ['Beginner (A1)', 'Elementry (A2)', 'Intermediate (B1)', 'Upper Intermediate(B2)', 'Advanced (C1)', 'Bilingaul or Proficient (C2)', 'Native']
   constructor(@Inject('templateData') public resume: any) { }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

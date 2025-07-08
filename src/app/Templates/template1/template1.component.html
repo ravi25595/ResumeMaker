@@ -17,7 +17,11 @@
             <!-- @for (skill of resume.skills; track $index) {
             <li>{{skill}}</li>
             } -->
-            <div [innerHTML]="resume.skills"></div>
+            <ul>
+                @for (item of resume.extractSkills; track $index) {
+                <li>{{item}}</li>
+                }
+            </ul>
             }
             @else {
             @if (isPreview)
@@ -54,7 +58,12 @@
             }
         </section>
         @if (resume.additional) {
-        <section [innerHTML]="resume.additional"></section>
+        <section>
+            <h3>{{"Languages".toUpperCase()}}</h3>
+            @for (item of resume.additional.languages; track $index) {
+            <p><strong>{{item.language}}:</strong>{{proficiencyLevels[item.proficiency]}}</p>
+            }
+        </section>
         }
         @else {
         <section>
